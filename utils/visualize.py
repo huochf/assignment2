@@ -97,13 +97,13 @@ def main(args):
     if params['encoder'] == '_vector':
         encoder = EncoderCNN(embed_size, e2e).eval()
     else:
-        raise NotImplementError()
+        raise NotImplementedError()
     encoder = encoder.to(device)
 
     if params['decoder'] == 'lstm':
         decoder = DecoderRNN(embed_size, hidden_size, len(vocab), num_layers, ).eval()
     else:
-        raise NotImplementError()
+        raise NotImplementedError()
     decoder = decoder.to(device)
 
     # Load pretrained model
