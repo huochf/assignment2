@@ -14,8 +14,6 @@ from pycocotools.coco import COCO
 
 from datasets.coco_data_loader import get_loader
 from modeling.base_model import EncoderCNN, DecoderRNN
-from modeling.encoders import EncoderCNNSequence, EncoderCNN3DTensor
-from modeling.decoders import DecoderLSTMAttn, DecoderLSTMTriAttn
 from utils.build_vocab import Vocabulary
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -96,20 +94,16 @@ def main(args):
         vocab = pickle.load(f)
 
     # Build the models
-    if params['encoder'] == 'sequence':
-        encoder = EncoderCNNSequence(embed_size, e2e).eval()
-    elif params['encoder'] == 'tensor3D':
-        encoder = EncoderCNN3DTensor(embed_size, e2e).eval()
-    else:
+    if params['encoder'] == '_vector':
         encoder = EncoderCNN(embed_size, e2e).eval()
+    else:
+        raise NotImplementError()
     encoder = encoder.to(device)
 
-    if params['decoder'] == 'attention':
-        decoder = DecoderLSTMAttn(embed_size, hidden_size, len(vocab), num_layers, visualize=True).eval()
-    elif params['decoder'] == 'triple_attention':
-        decoder = DecoderLSTMTriAttn(embed_size, hidden_size, len(vocab), num_layers, ).eval()
-    else:
+    if params['decoder'] == 'lstm':
         decoder = DecoderRNN(embed_size, hidden_size, len(vocab), num_layers, ).eval()
+    else:
+        raise NotImplementError()
     decoder = decoder.to(device)
 
     # Load pretrained model
