@@ -49,6 +49,13 @@ python
 
 then file ```data/vocab.pkl``` will be generated.
 
+## Download coco caption evaluation tools
+
+```
+cd ./utils
+git clone https://github.com/sks3i/pycocoevalcap.git
+```
+
 ## Task 1: Run through base model (30 pts)
 
 just run
