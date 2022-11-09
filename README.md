@@ -49,7 +49,7 @@ python
 
 then file ```data/vocab.pkl``` will be generated.
 
-## Download coco caption evaluation tools
+## Clone coco caption evaluation tools
 
 ```
 cd ./utils
