@@ -136,7 +136,10 @@ def main(args):
 
         images = images.to(device)
         feature = encoder(images)
-        sampled_ids, attn_weights = decoder.sample(feature)
+        if params['decoder'] == 'attention':
+            sampled_ids, attn_weights = decoder.sample(feature)
+        else:
+            sampled_ids = decoder.sample(feature)
         gen_cap = id_to_word(sampled_ids[0].detach().cpu().numpy())
         gt_cap = id_to_word(captions[0].detach().cpu().numpy())
 
