@@ -94,7 +94,7 @@ def main(args):
         vocab = pickle.load(f)
 
     # Build the models
-    if params['encoder'] == 'sequence':
+    if params['encoder'] == 'single_vector':
         encoder = EncoderCNN(embed_size, e2e).eval()
     else:
         raise NotImplementedError()
