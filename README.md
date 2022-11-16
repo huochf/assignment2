@@ -156,7 +156,6 @@ export LD_LIBRARY_PATH=/public/software/gcc/gcc-10.2.0/lib/:$LD_LIBRARY_PATH
 then run
 ```
 source ./.bashrc
-```
 gcc -v
 ```
 
