@@ -143,3 +143,30 @@ what you need to submit should include:
 This code framework are based on this repository:
 
 [Neural-Image-Captioning](https://github.com/SathwikTejaswi/Neural-Image-Captioning) 
+
+# Question & Answering
+
+1. version of gcc/g++ is too low, fail to install pycocotools.
+First way, we can use gcc-10.2.0 which has been compiled in AI cluster.
+Add two lines to the file ```/public/home/<your name>/.bashrc```
+```
+export PATH=/public/software/gcc/gcc-10.2.0/bin/:/public/software/gcc/gcc-10.2.0/lib64/:$PATH
+export LD_LIBRARY_PATH=/public/software/gcc/gcc-10.2.0/lib/:$LD_LIBRARY_PATH
+```
+then run
+```
+source ./.bashrc
+```
+gcc -v
+```
+
+Or you can compile by yourself, follow [this instriction](https://blog.csdn.net/qq_36303832/article/details/119118519) to upgrade gcc in AI CLuster under user permissions.
+First, you need to download gcc. If we want to use gcc-7.5.0 version, run
+```
+cd /public/home/<your name>/
+mkdir gcc & cd gcc
+wget http://ftp.gnu.org/gnu/gcc/gcc-7.5.0/gcc-7.5.0.tar.gz
+tar -zxvf ./gcc-7.5.0.tar.gz
+cd ./gcc-7.5.0/
+... ...
+```
