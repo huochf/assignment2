@@ -147,7 +147,7 @@ This code framework are based on this repository:
 # Question & Answering
 
 1. version of gcc/g++ is too low, fail to install pycocotools.
-First way, we can use gcc-10.2.0 which has been compiled in AI cluster.
+First way, you can use gcc-10.2.0 which has been compiled in AI cluster.
 Add two lines to the file ```/public/home/<your name>/.bashrc```
 ```
 export PATH=/public/software/gcc/gcc-10.2.0/bin/:/public/software/gcc/gcc-10.2.0/lib64/:$PATH
